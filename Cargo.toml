@@ -1,0 +1,30 @@
+[package]
+name = "DisplayManager"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies.windows]
+version = "0.62"
+features = [
+    "Win32_Foundation",
+    "Win32_Graphics_Gdi",
+    "Win32_Devices_Display"
+]
+
+[dependencies]
+eframe = "0.33.3"
+image = "0.25.9"
+
+[build-dependencies]
+winres = "0.1"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+debug = 0
+incremental = false
+overflow-checks = false
+debug-assertions = false
